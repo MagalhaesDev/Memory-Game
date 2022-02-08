@@ -89,44 +89,55 @@ body{
 
 
 .activeOff{
+    opacity: 0;
     display: none;
-    background-color: gray;
-    width: 0px;
     min-height: 100vh;
     position: absolute;
     top: 0;
     right: 0;
+
 }
 
 .activeOn{
+    width: 400px;
+    background-color: #101c2c;
     display: block;
-    animation: widthActive .3s ease forwards;
+    animation: widthActive .2s ease-in-out forwards;
 }
 
-.ul-ranking{
-    font-size: 20px;
+#ul-ranking{
+    text-transform: uppercase;
+    color: white;
+    padding-top: 50px;
+    font-size: 15px;
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-.ul-ranking > li{
+#ul-ranking > hr {
+    width: 100%;
+    background-color: black;
+}
+
+
+#ul-ranking > li{
     margin-bottom: 10px;
     list-style: none;
 }
 
 #btn-bar{
+    font-weight: 700;
+    border-radius: 5px;
+    background-color: yellow;
     border: none;
     position: absolute;
-    width: 55px;
-    height: 55px;
-    background: transparent;
+    width: 75px;
+    height: 40px;
     top: 0;
-    right: 1%;
-    outline: none;
+    right: 10px;
     cursor: pointer;
 }
 
@@ -146,33 +157,20 @@ body{
 }
 
 
-
-.bar{
-    display: block;
-    position: relative;
-    width: 30px;
-    height: 2px;
-    background-color: black;
-    margin: 8px;
-    transition: .4s;
-    transform-origin: center;
-}
-
-
 @keyframes widthActive {
     to{
-        width: 400px;
+        opacity: 1;
     }
 }
 
 
 @media (max-width: 500px){
     .card{
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
     }
     .card img {
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
     }
 }

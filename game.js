@@ -109,12 +109,13 @@ const game = {
 
     updateRanking: function(){
         let inputRanking = document.getElementById("input-ranking").value;
-        let ranking = document.getElementById("ranking");
-        let ulRanking = document.createElement("ul");
-        ulRanking.classList.add("ul-ranking");
-        let liRanking = document.createElement("li");
-        liRanking.innerHTML = inputRanking + " Moviments: " + this.movementCounter();
-        ulRanking.appendChild(liRanking);
-        ranking.appendChild(ulRanking);
+        if(!inputRanking){
+            return false;
+        }
+        let ulRanking = document.getElementById("ul-ranking");
+        let resultado = ulRanking.innerHTML += `<li>${inputRanking}</li>
+                                                <li>Ganhou em: ${game.movementCounter()} Movimentos</li>
+                                                <hr>`
+        localStorage.setItem("inputRanking",resultado);
     },
 }

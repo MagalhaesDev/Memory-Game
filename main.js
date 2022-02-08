@@ -4,7 +4,9 @@ const ICON = "icon";
 
 startGame()
 
+
 function startGame(){
+    document.getElementById("ul-ranking").innerHTML = localStorage.getItem("inputRanking")
     initializeCards(game.cardGame());
 }
 
@@ -52,10 +54,9 @@ function flipCard(){
             game.resetCard();
             if(game.endGame()){
                let gameOver = document.getElementById("gameOver");
-               let messageVictory = document.createElement("div");
-               messageVictory.innerHTML = "Contador de Movimentos: " + game.movementCounter();
+               let counter = document.getElementById("counter");
                gameOver.style.display = "flex";
-               gameOver.appendChild(messageVictory);
+               counter.innerHTML = "Contador de Movimentos: " + game.movementCounter();
             }
         }else{
            setTimeout(() => {
@@ -74,11 +75,12 @@ function flipCard(){
 }
 
 function restart(){
+    game.updateRanking();
     gameBoard.innerHTML = "";
+    game.contador = 0;
     let gameOver = document.getElementById("gameOver");
     gameOver.style.display = "none";
     initializeCards(game.cardGame());
-    game.updateRanking();
 }
 
 function hotBar(){

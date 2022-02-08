@@ -21,29 +21,15 @@
             <input id="input-ranking"type="text" placeholder="Digite seu nome para atualizar o ranking">
         </div>
         <button id="restart" onclick="restart()">Jogue novamente</button>
+        <div id="counter">
+
+        </div>
     </div>
     <div id="ranking" class="activeOff">
-        <!-- <ul class="ul-ranking">
-            <li>Mateus Magalhaes</li>
-            <li>Moviments: 10</li>
-            <li>Mateus Magalhaes</li>
-            <li>Moviments: 10</li>
-            <li>Mateus Magalhaes</li>
-            <li>Moviments: 10</li>
-            <li>Mateus Magalhaes</li>
-            <li>Moviments: 10</li>
-            <li>Mateus Magalhaes</li>
-            <li>Moviments: 10</li>
-            <li>Mateus Magalhaes</li>
-            <li>Moviments: 10</li>
-        
-        </ul> -->
+       <ul id="ul-ranking">
+       </ul>
     </div>
-    <button id="btn-bar"onclick="hotBar()">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>
+    <button id="btn-bar"onclick="hotBar()" onclick="updateRanking()">Ranking</button>
     <script src="game.js"></script>
 
     <script src="main.js"></script>
