@@ -24,7 +24,7 @@ const game = {
         }
 
         this.cards = this.cards.flatMap(card => card);
-        // this.shuffleCards();
+        this.shuffleCards();
         return this.cards
     },
 
@@ -44,17 +44,17 @@ const game = {
         return tech + parseInt(Math.random() * 1000)
     },
 
-    // shuffleCards: function(){
-    //     let cardIndex = this.cards.length;
-    //     let randomIndex = 0;
+    shuffleCards: function(){
+        let cardIndex = this.cards.length;
+        let randomIndex = 0;
     
-    //     while(cardIndex !== 0){
-    //         randomIndex = Math.floor(Math.random() * cardIndex);
-    //         cardIndex--;
+        while(cardIndex !== 0){
+            randomIndex = Math.floor(Math.random() * cardIndex);
+            cardIndex--;
     
-    //         [this.cards[randomIndex],this.cards[cardIndex]] = [this.cards[cardIndex],this.cards[randomIndex]];
-    //     }
-    // },
+            [this.cards[randomIndex],this.cards[cardIndex]] = [this.cards[cardIndex],this.cards[randomIndex]];
+        }
+    },
 
     
     firstCard: null,
