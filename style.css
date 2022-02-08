@@ -173,4 +173,14 @@ body{
         width: 70px;
         height: 70px;
     }
+    #gameOver{
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 630px){
+    #gameOver{
+        text-align: center;
+    }
 }
