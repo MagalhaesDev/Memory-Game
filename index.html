@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-</head>
-<body>
-
-    <div id="gameBoard">
-    </div>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  </head>
+  <body>
+    <div id="gameBoard"></div>
 
     <div id="gameOver">
-        <div>
-            Parabéns, você completou o jogo!
-        </div>
-        <div>
-            <input id="input-ranking"type="text" placeholder="Digite seu nome para atualizar o ranking">
-        </div>
-        <button id="restart" onclick="restart()">Jogue novamente</button>
-        <div id="counter">
-
-        </div>
+      <div>Parabéns, você completou o jogo!</div>
+      <div>
+        <input
+          id="input-ranking"
+          type="text"
+          placeholder="Digite seu nome para atualizar o ranking"
+        />
+      </div>
+      <button id="restart" onclick="restart()">Jogue novamente</button>
+      <div id="counter"></div>
     </div>
     <div id="ranking" class="activeOff">
-       <ul id="ul-ranking">
-       </ul>
+      <ul id="ul-ranking"></ul>
     </div>
-    <button id="btn-bar"onclick="hotBar()" onclick="updateRanking()">Ranking</button>
+    <button id="btn-bar" onclick="hotBar()" onclick="updateRanking()">
+      Pontuação
+    </button>
     <script src="game.js"></script>
 
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

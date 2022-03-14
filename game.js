@@ -1,121 +1,124 @@
 const game = {
-    techs: [
-        "bootstrap",
-        "css",
-        "electron",
-        "firebase",
-        "html",
-        "javascript",
-        "jquery",
-        "mongo",
-        "node",
-        "react",
-    ],
+  techs: [
+    'bootstrap',
+    'css',
+    'electron',
+    'firebase',
+    'html',
+    'javascript',
+    'jquery',
+    'mongo',
+    'node',
+    'react'
+  ],
 
-    contador: 0,
+  contador: 0,
 
-    cards: null,
+  cards: null,
 
-    cardGame: function(){
-        
-        this.cards = [];
-        for(let tech of this.techs){
-            this.cards.push(this.createCardGame(tech)); 
-        }
+  cardGame: function () {
+    this.cards = []
+    for (let tech of this.techs) {
+      this.cards.push(this.createCardGame(tech))
+    }
 
-        this.cards = this.cards.flatMap(card => card);
-        this.shuffleCards();
-        return this.cards
-    },
+    this.cards = this.cards.flatMap(card => card)
+    this.shuffleCards()
+    return this.cards
+  },
 
-    createCardGame: function(tech){
-        return [{
-            id: this.createIdCardGame(tech),
-            icon: tech,
-            flipped: false,
-        },{
-            id: this.createIdCardGame(tech),
-            icon: tech,
-            flipped: false,
-        }]
-    },
-    
-    createIdCardGame: function(tech){
-        return tech + parseInt(Math.random() * 1000)
-    },
+  createCardGame: function (tech) {
+    return [
+      {
+        id: this.createIdCardGame(tech),
+        icon: tech,
+        flipped: false
+      },
+      {
+        id: this.createIdCardGame(tech),
+        icon: tech,
+        flipped: false
+      }
+    ]
+  },
 
-    shuffleCards: function(){
-        let cardIndex = this.cards.length;
-        let randomIndex = 0;
-    
-        while(cardIndex !== 0){
-            randomIndex = Math.floor(Math.random() * cardIndex);
-            cardIndex--;
-    
-            [this.cards[randomIndex],this.cards[cardIndex]] = [this.cards[cardIndex],this.cards[randomIndex]];
-        }
-    },
+  createIdCardGame: function (tech) {
+    return tech + parseInt(Math.random() * 1000)
+  },
 
-    
-    firstCard: null,
-    secondCard: null,
-    lockMode: false,
+  shuffleCards: function () {
+    let cardIndex = this.cards.length
+    let randomIndex = 0
 
-    cardFlipContent: function(id){
-        let card = this.cards.filter(card => card.id === id)[0];
-        if(card.flipped || this.lockMode){
-            return false;
-        }
+    while (cardIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * cardIndex)
+      cardIndex--
+      ;[this.cards[randomIndex], this.cards[cardIndex]] = [
+        this.cards[cardIndex],
+        this.cards[randomIndex]
+      ]
+    }
+  },
 
-        if(!this.firstCard){
-            this.firstCard = card;
-            this.firstCard.flipped = true;
-            return true;
-        }else{
-            this.secondCard = card;
-            this.secondCard.flipped = true;
-            this.lockMode = true;
-            return true;
-        }
-    },
+  firstCard: null,
+  secondCard: null,
+  lockMode: false,
 
-    checkGame: function () {
-        if(!this.firstCard || !this.secondCard){
-            return false;
-        }
-        return this.firstCard.icon === this.secondCard.icon;
-    },
+  cardFlipContent: function (id) {
+    let card = this.cards.filter(card => card.id === id)[0]
+    if (card.flipped || this.lockMode) {
+      return false
+    }
 
-    resetCard: function(){
-        this.firstCard = null
-        this.secondCard = null
-        this.lockMode = false
-    },
+    if (!this.firstCard) {
+      this.firstCard = card
+      this.firstCard.flipped = true
+      return true
+    } else {
+      this.secondCard = card
+      this.secondCard.flipped = true
+      this.lockMode = true
+      return true
+    }
+  },
 
-    unFlipCard: function(){
-        this.firstCard.flipped = false;
-        this.secondCard.flipped = false;
-        this.resetCard();
-    },
+  checkGame: function () {
+    if (!this.firstCard || !this.secondCard) {
+      return false
+    }
+    return this.firstCard.icon === this.secondCard.icon
+  },
 
-    endGame: function(){
-        return this.cards.filter(card => !card.flipped).length === 0;
-    },
+  resetCard: function () {
+    this.firstCard = null
+    this.secondCard = null
+    this.lockMode = false
+  },
 
-    movementCounter: function () {
-        this.contador++;
-        return this.contador;
-    },
+  unFlipCard: function () {
+    this.firstCard.flipped = false
+    this.secondCard.flipped = false
+    this.resetCard()
+  },
 
-    updateRanking: function(){
-        let inputRanking = document.getElementById("input-ranking").value;
-        if(!inputRanking){
-            return false;
-        }
-        let ulRanking = document.getElementById("ul-ranking");
-        let resultado = ulRanking.innerHTML += `<li>${inputRanking}</li>
-                                                <li>Ganhou em: ${game.movementCounter()} Movimentos</li>
-                                                <hr>`
-        localStorage.setItem("inputRanking",resultado);
-    },
+  endGame: function () {
+    return this.cards.filter(card => !card.flipped).length === 0
+  },
+
+  movementCounter: function () {
+    this.contador++
+    return this.contador
+  },
+
+  updateRanking: function () {
+    let inputRanking = document.getElementById('input-ranking').value
+    if (!inputRanking) {
+      return false
+    }
+    let ulRanking = document.getElementById('ul-ranking')
+    let resultado = (ulRanking.innerHTML += `<li>${inputRanking}</li>
+                                                <li>Ganhou em: ${game.contador} Movimentos</li>
+                                                <hr>`)
+    localStorage.setItem('inputRanking', resultado)
+  }
 }
