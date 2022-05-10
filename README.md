@@ -7,7 +7,7 @@
 
 ## Technology 
 
-Here are the technologies used in this project.
+Here are the technologies used in this project...
 
 * Javascript
 * CSS
