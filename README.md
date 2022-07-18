@@ -3,7 +3,7 @@
 
 
 ## Memory Game
- This page was developed through the programmer BR course, in order to bring the old memory game. With a scoring system, showing how many moves you have won, besides the theme being related to the programming world with images of technologies..
+ This page was developed through the programmer BR course, in order to bring the old memory game. With a scoring system, showing how many moves you have won, besides the theme being related to the programming world with images of technologies...
 
 ## Technology 
 
